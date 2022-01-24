@@ -2,7 +2,7 @@ import { getProviders, signIn } from 'next-auth/react';
 
 export default function Login({ providers }) {
   return (
-    <div className='flex flex-col items-center justify-center w-full bg-black min-h-screen' >
+    <div className='flex flex-col items-center justify-center w-full bg-black min-h-screen'>
       <img
         className='w-52 mb-5'
         src='https://links.papareact.com/9xl'
