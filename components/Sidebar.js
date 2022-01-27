@@ -7,8 +7,9 @@ import {
   LibraryIcon,
   PlusCircleIcon,
   RssIcon,
-  HeartIcon,
 } from '@heroicons/react/outline';
+import { HeartIcon } from '@heroicons/react/solid';
+
 import { useRecoilState } from 'recoil';
 import { playlistIdState } from '../atoms/playlistAtom';
 
@@ -18,7 +19,6 @@ export const Sidebar = () => {
   const [playlists, setPlaylists] = useState([]);
   const [playlistId, setPlaylistId] = useRecoilState(playlistIdState);
 
-  console.log('you picked playlist >>> ', playlistId);
   useEffect(() => {
     if (spotifyApi.getAccessToken()) {
       spotifyApi.getUserPlaylists().then((data) => {
@@ -28,7 +28,7 @@ export const Sidebar = () => {
   }, [session, spotifyApi]);
 
   return (
-    <div className='text-gray-500 p-5 text-xs lg:text-sm boder-r border-gray-900 overflow-y-scroll h-screen sm:max-w-[12rem] lg:max-w-[15rem] hidden md:inline-flex scrollbar-hide'>
+    <div className='text-gray-500 p-5 text-xs lg:text-sm boder-r border-gray-900 overflow-y-scroll h-screen sm:max-w-[12rem] lg:max-w-[15rem] hidden md:inline-flex scrollbar-hide pb-36'>
       <div className='space-y-4'>
         <button className='flex items-center space-x-2 hover:text-white'>
           <HomeIcon className='h-5 w-5' />
@@ -48,12 +48,12 @@ export const Sidebar = () => {
           <PlusCircleIcon className='h-5 w-5' />
           <p>Create Playlist</p>
         </button>
-        <button className='flex items-center space-x-2 hover:text-white'>
+        <button className='flex items-center text-blue-500 space-x-2 hover:text-white'>
           <HeartIcon className='h-5 w-5' />
           <p>Liked Songs</p>
         </button>
         <button className='flex items-center space-x-2 hover:text-white'>
-          <RssIcon className='h-5 w-5' />
+          <RssIcon className='h-5 w-5 text-green-500' />
           <p>Your Library</p>
         </button>
         <hr className='border-t-[0.1px] border-gray-900' />
